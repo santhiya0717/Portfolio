@@ -158,3 +158,8 @@ color:white;
 
 }
 
+.feature-btn:hover{
+background:#d63384;
+color:white;
+transform:translateY(-2px);
+}
