@@ -137,29 +137,24 @@ display:inline-block;
 
 padding:14px 28px;
 
-background:white;           /* white box */
-color:#d63384;              /* same pink text */
+background:white;
 
-border:2px solid #d63384;   /* same pink border */
+color:#d63384;
+
+border:2px solid #d63384;
 
 border-radius:12px;
 
 text-decoration:none;
+
 font-weight:600;
 
-transition:0.3s;
-
 }
 
 .feature-btn:hover{
 
-background:#d63384;         /* same pink fill */
-color:white;
-
-}
-
-.feature-btn:hover{
 background:#d63384;
+
 color:white;
-transform:translateY(-2px);
+
 }
