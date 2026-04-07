@@ -121,3 +121,41 @@ padding:20px;
 margin-top:40px;
 
 }
+
+
+/* existing styles above */
+
+.projects{
+display:flex;
+gap:20px;
+}
+
+/* ADD YOUR NEW CODE BELOW */
+
+.featured-buttons{
+
+display:flex;
+gap:25px;
+flex-wrap:wrap;
+margin-top:20px;
+
+}
+
+.feature-btn{
+
+padding:14px 24px;
+border:2px solid #ff4d6d;
+border-radius:10px;
+text-decoration:none;
+color:#ff4d6d;
+font-weight:bold;
+transition:0.3s;
+
+}
+
+.feature-btn:hover{
+
+background:#ff4d6d;
+color:white;
+
+}
