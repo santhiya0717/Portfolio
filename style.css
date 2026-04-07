@@ -133,17 +133,19 @@ margin-top:20px;
 
 .feature-btn{
 
+display:inline-block;
+
 padding:14px 28px;
+
+background:white;           /* white button */
+color:#ff4d6d;              /* pink text */
+
 border:2px solid #ff4d6d;
 border-radius:12px;
-
-background:white;
-color:#ff4d6d;
 
 text-decoration:none;
 font-weight:600;
 
-box-shadow:0 4px 10px rgba(0,0,0,0.08);
 transition:0.3s;
 
 }
