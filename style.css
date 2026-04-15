@@ -158,3 +158,73 @@ background:#d63384;
 color:white;
 
 }
+
+
+/* MOBILE RESPONSIVE DESIGN */
+
+@media (max-width: 768px){
+
+/* Navbar */
+.navbar{
+flex-direction:column;
+gap:10px;
+padding:15px;
+text-align:center;
+}
+
+.navbar ul{
+flex-direction:column;
+gap:10px;
+padding:0;
+}
+
+/* Hero */
+.hero{
+height:auto;
+padding:40px 20px;
+}
+
+.hero-card{
+padding:25px;
+}
+
+/* Sections */
+.card{
+width:90%;
+padding:20px;
+margin:20px auto;
+}
+
+/* Projects */
+.projects{
+flex-direction:column;
+}
+
+/* Buttons */
+.featured-buttons{
+justify-content:center;
+}
+
+.feature-btn{
+width:100%;
+text-align:center;
+}
+
+}
+
+h1{
+font-size:28px;
+}
+
+h2{
+font-size:22px;
+}
+
+p{
+font-size:14px;
+line-height:1.6;
+}
+
+.project-box{
+word-wrap:break-word;
+}
