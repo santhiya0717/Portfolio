@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cover Letter — Santhiya Mahadevan</title>
+  <link rel="icon" type="image/png" href="logo.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:        #fdf8f6;
+      --bg2:       #fffafb;
+      --border:    rgba(210,140,155,0.18);
+      --border-md: rgba(210,140,155,0.35);
+      --text:      #2e1a24;
+      --text2:     #7a5565;
+      --text3:     #c4a0b0;
+      --accent:    #b84060;
+      --accent2:   #e090a8;
+      --accent-dim:#fce8ed;
+      --pink-mid:  #f0b0c0;
+      --fd: 'Cormorant Garamond', serif;
+      --fb: 'Jost', sans-serif;
+      --fm: 'DM Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--fb); font-size: 14px; line-height: 1.7; font-weight: 300; }
+
+    /* blossoms */
+    #bc { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+    .bl { position: absolute; opacity: 0; animation: wd linear infinite; will-change: transform,opacity; }
+    @keyframes wd {
+      0%   { transform: translateX(0) translateY(-70px) rotate(0deg); opacity: 0; }
+      6%   { opacity: 0.65; } 88% { opacity: 0.35; }
+      100% { transform: translateX(var(--dx)) translateY(110vh) rotate(var(--sp)); opacity: 0; }
+    }
+
+    /* top bar */
+    .top-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 52px; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 28px;
+      background: rgba(253,248,246,0.92); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .back-btn {
+      display: flex; align-items: center; gap: 6px;
+      font-family: var(--fm); font-size: 11px; color: var(--text2);
+      text-decoration: none; letter-spacing: 0.08em;
+      border: 1px solid var(--border-md); border-radius: 20px; padding: 6px 16px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .back-btn:hover { color: var(--accent); border-color: var(--accent); }
+    .top-bar-title { font-family: var(--fd); font-size: 16px; font-style: italic; color: var(--text2); }
+    .print-btn {
+      font-family: var(--fm); font-size: 11px; color: var(--accent);
+      background: var(--accent-dim); border: 1px solid rgba(184,64,96,0.25);
+      border-radius: 20px; padding: 6px 16px; cursor: pointer; letter-spacing: 0.08em;
+      transition: opacity 0.2s;
+    }
+    .print-btn:hover { opacity: 0.75; }
+
+    /* page card */
+    .page {
+      position: relative; z-index: 1;
+      max-width: 800px; margin: 68px auto 80px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px; overflow: hidden;
+      box-shadow: 0 8px 48px rgba(184,64,96,0.07);
+    }
+
+    /* letter header band */
+    .cl-head {
+      background: linear-gradient(135deg, #fce4ec 0%, #fff4f7 55%, #fdf8f6 100%);
+      padding: 44px 60px 32px;
+      border-bottom: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 24px;
+    }
+    .cl-sender-name {
+      font-family: var(--fd); font-size: 44px; font-weight: 300; line-height: 0.95;
+      color: var(--text); letter-spacing: -0.01em; margin-bottom: 10px;
+    }
+    .cl-sender-name em { font-style: italic; color: var(--accent); }
+    .cl-sender-details { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+    .cl-sender-details a, .cl-sender-details span {
+      font-family: var(--fm); font-size: 11px; color: var(--text2);
+      text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s;
+    }
+    .cl-sender-details a:hover { color: var(--accent); }
+    .cl-date-block { text-align: right; flex-shrink: 0; }
+    .cl-date { font-family: var(--fm); font-size: 11px; color: var(--text3); letter-spacing: 0.06em; }
+    .cl-ref { font-family: var(--fd); font-size: 13px; font-style: italic; color: var(--text3); margin-top: 4px; }
+
+    /* body */
+    .cl-body { padding: 44px 60px 52px; }
+
+    .cl-salutation {
+      font-family: var(--fd); font-size: 20px; font-weight: 400;
+      color: var(--text); margin-bottom: 28px;
+    }
+
+    .cl-para {
+      font-size: 14px; color: var(--text2); line-height: 1.95;
+      font-weight: 300; margin-bottom: 22px; text-align: justify;
+    }
+    .cl-para strong { color: var(--text); font-weight: 500; }
+    .cl-para em { color: var(--accent); font-style: italic; }
+
+    /* floral divider */
+    .cl-divider {
+      text-align: center; color: var(--pink-mid); font-size: 13px;
+      letter-spacing: 10px; margin: 28px 0; opacity: 0.55;
+    }
+
+    /* sign-off */
+    .cl-sign { margin-top: 36px; }
+    .cl-sign-close {
+      font-family: var(--fd); font-size: 18px; font-weight: 300;
+      color: var(--text2); margin-bottom: 30px;
+    }
+    .cl-sign-name {
+      font-family: var(--fd); font-size: 36px; font-style: italic;
+      font-weight: 300; color: var(--accent);
+    }
+    .cl-sign-title {
+      font-family: var(--fm); font-size: 11px; color: var(--text3);
+      letter-spacing: 0.07em; margin-top: 6px;
+    }
+    .cl-sign-email {
+      font-family: var(--fm); font-size: 11px; margin-top: 6px;
+    }
+    .cl-sign-email a { color: var(--accent); text-decoration: none; }
+    .cl-sign-email a:hover { opacity: 0.75; }
+
+    @media print {
+      #bc, .top-bar { display: none !important; }
+      body { background: white; }
+      .page { box-shadow: none; border: none; border-radius: 0; margin: 0; max-width: 100%; }
+      .cl-head, .cl-body { padding: 32px 44px; }
+    }
+    @media (max-width: 680px) {
+      .cl-head { flex-direction: column; padding: 28px 24px 24px; }
+      .cl-body { padding: 28px 24px; }
+      .cl-sender-name { font-size: 34px; }
+      .cl-date-block { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="bc"></div>
+
+<div class="top-bar">
+  <a href="index.html" class="back-btn">← Portfolio</a>
+  <span class="top-bar-title">Cover Letter</span>
+  <button class="print-btn" onclick="window.print()">⬇ Print / Save PDF</button>
+</div>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="cl-head">
+    <div>
+      <div class="cl-sender-name">Santhiya <em>Mahadevan</em></div>
+      <div class="cl-sender-details">
+        <a href="mailto:Santhiya0812@hotmail.com">Santhiya0812@hotmail.com</a>
+        <a href="https://www.linkedin.com/in/santhiya-mahadevan-4a0ab33ba" target="_blank">LinkedIn</a>
+        <a href="https://tryhackme.com/p/santhiyasuga1708" target="_blank">TryHackMe</a>
+        <a href="https://santhiya0717.github.io/Portfolio/" target="_blank">Portfolio</a>
+      </div>
+    </div>
+    <div class="cl-date-block">
+      <div class="cl-date">May 2026</div>
+      <div class="cl-ref">Cybersecurity Roles</div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="cl-body">
+
+    <div class="cl-salutation">Dear Hiring Manager,</div>
+
+    <p class="cl-para">
+      I am writing to express my interest in opportunities within the cybersecurity domain
+      at your organization. I am currently pursuing my <strong>M.Tech in Network and Information
+      Security</strong> at <em>Pondicherry University</em>, where I am developing a strong foundation in
+      areas such as network security, digital forensics, incident response, and cryptography.
+    </p>
+
+    <p class="cl-para">
+      Through hands-on labs and real-world simulation platforms such as <strong>Blue Team Labs
+      Online</strong> and <strong>TryHackMe</strong>, I have gained practical experience in threat detection, log
+      analysis, and incident investigation. I have worked on analyzing system and browser
+      artifacts, correlating security events, and identifying attack timelines, which has
+      strengthened my understanding of <em>Security Operations Center (SOC) workflows</em> and
+      defensive security practices.
+    </p>
+
+    <p class="cl-para">
+      In addition to my academic training, I have completed projects such as a <strong>cybersecurity
+      detection and monitoring lab</strong>, where I configured firewall rules, monitored logs, and
+      developed structured troubleshooting workflows. I have also built a deep learning
+      model for gastrointestinal cancer detection, demonstrating my ability to apply
+      analytical and technical skills to complex problem-solving scenarios.
+    </p>
+
+    <p class="cl-para">
+      My technical skill set includes <strong>Python</strong> and <strong>Bash scripting</strong>, networking fundamentals
+      (TCP/IP, DNS, DHCP), and system administration in Windows and Linux
+      environments. I am particularly interested in roles related to <em>SOC analysis, threat
+      detection, and incident response</em>, where I can contribute to strengthening
+      organizational security while continuing to grow my expertise.
+    </p>
+
+    <div class="cl-divider">✿ ✿ ✿</div>
+
+    <p class="cl-para">
+      I am highly motivated, detail-oriented, and committed to continuous learning in the
+      rapidly evolving field of cybersecurity. I would welcome the opportunity to contribute
+      my skills and enthusiasm to your team.
+    </p>
+
+    <p class="cl-para">
+      Thank you for your time and consideration. I look forward to the opportunity to
+      discuss how I can add value to your organization.
+    </p>
+
+    <div class="cl-sign">
+      <div class="cl-sign-close">Sincerely,</div>
+      <div class="cl-sign-name">Santhiya Mahadevan</div>
+      <div class="cl-sign-title">M.Tech · Network & Information Security · Pondicherry University</div>
+      <div class="cl-sign-email">
+        <a href="mailto:Santhiya0812@hotmail.com">Santhiya0812@hotmail.com</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const bc=document.getElementById('bc');
+  const NS='http://www.w3.org/2000/svg';
+  const pals=[['#f9c0d0','#f4a8bc','#f0b8c8'],['#fddde6','#f9c8d4','#f7b8cc'],['#fce4ec','#f8bbd0','#f48fb1']];
+  function mkB(sz){
+    const c=pals[Math.floor(Math.random()*pals.length)];
+    const svg=document.createElementNS(NS,'svg');
+    svg.setAttribute('width',sz);svg.setAttribute('height',sz);svg.setAttribute('viewBox','0 0 40 40');
+    for(let i=0;i<5;i++){
+      const g=document.createElementNS(NS,'g');g.setAttribute('transform',`rotate(${i*72} 20 20)`);
+      const e=document.createElementNS(NS,'ellipse');
+      e.setAttribute('cx','20');e.setAttribute('cy','13');e.setAttribute('rx','4.5');e.setAttribute('ry','7');
+      e.setAttribute('fill',c[i%c.length]);e.setAttribute('opacity','0.78');g.appendChild(e);svg.appendChild(g);
+    }
+    const ci=document.createElementNS(NS,'circle');ci.setAttribute('cx','20');ci.setAttribute('cy','20');
+    ci.setAttribute('r','3');ci.setAttribute('fill','#fffaf8');ci.setAttribute('opacity','0.95');svg.appendChild(ci);
+    return svg;
+  }
+  for(let i=0;i<18;i++){
+    const sz=13+Math.random()*20,sx=Math.random()*window.innerWidth;
+    const dx=(Math.random()-0.35)*240,sp=(Math.random()-0.5)*400;
+    const dur=8+Math.random()*10,del=Math.random()*dur;
+    const w=document.createElement('div');w.className='bl';
+    w.style.cssText=`left:${sx}px;top:0;width:${sz}px;height:${sz}px;--dx:${dx}px;--sp:${sp}deg;animation-duration:${dur}s;animation-delay:-${del}s`;
+    w.appendChild(mkB(sz));bc.appendChild(w);
+    w.addEventListener('animationiteration',()=>{w.style.left=(Math.random()*window.innerWidth)+'px';});
+  }
+</script>
+</body>
+</html>
