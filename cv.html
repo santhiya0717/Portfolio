@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CV — Santhiya Mahadevan</title>
+  <link rel="icon" type="image/png" href="logo.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:        #fdf8f6;
+      --bg2:       #fffafb;
+      --bg3:       #fef0f3;
+      --border:    rgba(210,140,155,0.18);
+      --border-md: rgba(210,140,155,0.35);
+      --text:      #2e1a24;
+      --text2:     #7a5565;
+      --text3:     #c4a0b0;
+      --accent:    #b84060;
+      --accent2:   #e090a8;
+      --accent-dim:#fce8ed;
+      --pink-mid:  #f0b0c0;
+      --fd: 'Cormorant Garamond', serif;
+      --fb: 'Jost', sans-serif;
+      --fm: 'DM Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--fb); font-size: 14px; line-height: 1.7; font-weight: 300; }
+
+    /* ── BLOSSOMS ── */
+    #bc { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+    .bl { position: absolute; opacity: 0; animation: wd linear infinite; will-change: transform,opacity; }
+    @keyframes wd {
+      0%   { transform: translateX(0) translateY(-70px) rotate(0deg); opacity: 0; }
+      6%   { opacity: 0.65; }
+      88%  { opacity: 0.35; }
+      100% { transform: translateX(var(--dx)) translateY(110vh) rotate(var(--sp)); opacity: 0; }
+    }
+
+    /* ── CONTROLS ── */
+    .top-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 52px; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 28px;
+      background: rgba(253,248,246,0.92); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .back-btn {
+      display: flex; align-items: center; gap: 6px;
+      font-family: var(--fm); font-size: 11px; color: var(--text2);
+      text-decoration: none; letter-spacing: 0.08em;
+      border: 1px solid var(--border-md); border-radius: 20px; padding: 6px 16px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .back-btn:hover { color: var(--accent); border-color: var(--accent); }
+    .top-bar-title {
+      font-family: var(--fd); font-size: 16px; font-style: italic;
+      color: var(--text2); letter-spacing: 0.02em;
+    }
+    .print-btn {
+      font-family: var(--fm); font-size: 11px; color: var(--accent);
+      background: var(--accent-dim); border: 1px solid rgba(184,64,96,0.25);
+      border-radius: 20px; padding: 6px 16px; cursor: pointer; letter-spacing: 0.08em;
+      transition: opacity 0.2s;
+    }
+    .print-btn:hover { opacity: 0.75; }
+
+    /* ── PAGE ── */
+    .page {
+      position: relative; z-index: 1;
+      max-width: 900px; margin: 68px auto 80px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px; overflow: hidden;
+      box-shadow: 0 8px 48px rgba(184,64,96,0.07);
+    }
+
+    /* ── HEADER ── */
+    .cv-head {
+      background: linear-gradient(135deg, #fce4ec 0%, #fff4f7 55%, #fdf8f6 100%);
+      padding: 48px 56px 36px;
+      border-bottom: 1px solid var(--border);
+    }
+    .cv-name {
+      font-family: var(--fd); font-size: 58px; font-weight: 400; line-height: 0.9;
+      color: var(--text); letter-spacing: -0.01em; margin-bottom: 10px;
+    }
+    .cv-name em { font-style: italic; color: var(--accent); }
+    .cv-degree {
+      font-family: var(--fb); font-size: 13px; font-weight: 400; color: var(--text2);
+      letter-spacing: 0.03em; margin-bottom: 16px;
+    }
+    .cv-contacts { display: flex; flex-wrap: wrap; gap: 6px 24px; }
+    .cv-contacts a, .cv-contacts span {
+      font-family: var(--fm); font-size: 11px; color: var(--text2);
+      text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s;
+    }
+    .cv-contacts a:hover { color: var(--accent); }
+
+    /* ── BODY ── */
+    .cv-body { padding: 40px 56px 52px; display: flex; flex-direction: column; gap: 32px; }
+
+    /* ── SECTION TITLE ── */
+    .sec-title {
+      font-family: var(--fm); font-size: 10px; color: var(--accent);
+      letter-spacing: 0.22em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+    }
+    .sec-title::after { content: ''; flex: 1; height: 1px; background: var(--pink-mid); opacity: 0.6; }
+
+    /* ── SUMMARY ── */
+    .summary { font-size: 13.5px; color: var(--text2); line-height: 1.9; font-weight: 300; }
+
+    /* ── EDU ITEM ── */
+    .edu-item { margin-bottom: 20px; }
+    .edu-item:last-child { margin-bottom: 0; }
+    .edu-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 2px; }
+    .edu-title { font-family: var(--fb); font-size: 14px; font-weight: 600; color: var(--text); }
+    .edu-date { font-family: var(--fm); font-size: 11px; color: var(--text3); white-space: nowrap; flex-shrink: 0; }
+    .edu-place { font-size: 13px; color: var(--accent); font-style: italic; margin-bottom: 4px; }
+    .edu-mods { font-size: 12px; color: var(--text3); line-height: 1.65; font-style: italic; }
+
+    /* ── SKILLS TABLE ── */
+    .skills-table { width: 100%; border-collapse: collapse; }
+    .skills-table tr { border-bottom: 1px solid var(--border); }
+    .skills-table tr:last-child { border-bottom: none; }
+    .skills-table td { padding: 9px 12px; font-size: 13px; vertical-align: top; }
+    .skills-table td:first-child {
+      font-weight: 500; color: var(--text); width: 200px;
+      background: var(--bg3); border-right: 1px solid var(--border);
+      font-family: var(--fb);
+    }
+    .skills-table td:last-child { color: var(--text2); }
+
+    /* ── KEY SKILLS CHIPS ── */
+    .chips { display: flex; flex-wrap: wrap; gap: 7px; }
+    .chip {
+      font-family: var(--fm); font-size: 11px; padding: 4px 12px;
+      background: var(--bg3); border: 1px solid var(--border-md); border-radius: 16px;
+      color: var(--text2); letter-spacing: 0.03em;
+    }
+    .chip.hi { border-color: var(--accent2); color: var(--accent); background: var(--accent-dim); }
+
+    /* ── PROJECT ITEM ── */
+    .proj-item { margin-bottom: 20px; }
+    .proj-item:last-child { margin-bottom: 0; }
+    .proj-header { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 6px; }
+    .proj-title { font-family: var(--fb); font-size: 13.5px; font-weight: 600; color: var(--accent); }
+    .proj-year { font-family: var(--fm); font-size: 11px; color: var(--text3); }
+    .proj-list { padding-left: 18px; }
+    .proj-list li { font-size: 13px; color: var(--text2); margin-bottom: 3px; line-height: 1.7; }
+    .proj-list li::marker { color: var(--pink-mid); }
+
+    /* ── VOLUNTEER ── */
+    .vol-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .vol-list li { display: flex; align-items: baseline; gap: 10px; font-size: 13px; color: var(--text2); }
+    .vol-list li::before { content: '✿'; font-size: 9px; color: var(--pink-mid); flex-shrink: 0; }
+    .vol-date { font-family: var(--fm); font-size: 10px; color: var(--text3); margin-left: 4px; }
+
+    /* ── DIVIDER ── */
+    .div { height: 1px; background: var(--border); }
+
+    /* ── TWO COL ── */
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+
+    /* ── LINKS ── */
+    .link-item { display: flex; flex-direction: column; gap: 3px; margin-bottom: 10px; }
+    .link-item:last-child { margin-bottom: 0; }
+    .link-label { font-family: var(--fm); font-size: 10px; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; }
+    .link-item a { font-size: 13px; color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+    .link-item a:hover { opacity: 0.75; }
+
+    @media print {
+      #bc, .top-bar { display: none !important; }
+      body { background: white; }
+      .page { box-shadow: none; border: none; border-radius: 0; margin: 0; max-width: 100%; }
+      .cv-head { padding: 32px 40px 24px; }
+      .cv-body { padding: 28px 40px 36px; }
+    }
+    @media (max-width: 700px) {
+      .cv-head, .cv-body { padding: 28px 22px; }
+      .cv-name { font-size: 40px; }
+      .two { grid-template-columns: 1fr; }
+      .skills-table td:first-child { width: 140px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="bc"></div>
+
+<div class="top-bar">
+  <a href="index.html" class="back-btn">← Portfolio</a>
+  <span class="top-bar-title">Curriculum Vitae</span>
+  <button class="print-btn" onclick="window.print()">⬇ Print / Save PDF</button>
+</div>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="cv-head">
+    <div class="cv-name">Santhiya <em>Mahadevan</em></div>
+    <div class="cv-degree">M.Tech (Network and Information Security) &nbsp;|&nbsp; B.Tech (Computer Science and Engineering)</div>
+    <div class="cv-contacts">
+      <a href="mailto:Santhiya0812@hotmail.com">Santhiya0812@hotmail.com</a>
+      <a href="https://www.linkedin.com/in/santhiya-mahadevan-4a0ab33ba" target="_blank">linkedin.com/in/santhiya-mahadevan</a>
+      <a href="https://santhiya0717.github.io/Portfolio/" target="_blank">Portfolio</a>
+      <a href="https://tryhackme.com/p/santhiyasuga1708" target="_blank">TryHackMe</a>
+    </div>
+  </div>
+
+  <div class="cv-body">
+
+    <!-- PROFESSIONAL SUMMARY -->
+    <div>
+      <div class="sec-title">Professional Summary</div>
+      <p class="summary">
+        Cybersecurity enthusiast with practical experience in threat detection, incident investigation, and digital forensic
+        analysis gained through hands-on labs and real-world simulation platforms. Experienced in investigating malicious
+        activity, analyzing system and browser artifacts, and correlating security events to identify attack timelines.
+        Completed multiple investigative scenarios on Blue Team Labs Online and actively strengthening defensive security
+        capabilities through TryHackMe. Possesses strong analytical, problem-solving, and research skills with a focus on
+        SOC operations, threat analysis, and security monitoring.
+      </p>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- EDUCATION -->
+    <div>
+      <div class="sec-title">Education</div>
+      <div class="edu-item">
+        <div class="edu-row">
+          <span class="edu-title">Masters in Network and Information Security</span>
+          <span class="edu-date">2024 – 2026</span>
+        </div>
+        <div class="edu-place">Pondicherry University</div>
+        <div class="edu-mods">NCSC/GCHQ-accredited &nbsp;·&nbsp; Cryptography · Network Security · Cyber Security · Cyber Forensics · Software Security · Penetration Testing · Security Management · Incident Response</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-row">
+          <span class="edu-title">Bachelor of Technology in Computer Science & Engineering</span>
+          <span class="edu-date">2020 – 2024</span>
+        </div>
+        <div class="edu-place">Manakula Vinayagar Institute of Technology</div>
+        <div class="edu-mods">Data Structures · Linux & Programming in C++ · Control Systems · Smart Grid Technology · Digital Signal Processing · Power System Analysis · C Programming · Microprocessors & Microcontrollers</div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- TECHNICAL SKILLS -->
+    <div>
+      <div class="sec-title">Technical Skills</div>
+      <table class="skills-table">
+        <tr>
+          <td>Monitoring & Incident Handling</td>
+          <td>Log analysis, alert triage, incident documentation</td>
+        </tr>
+        <tr>
+          <td>Scripting for Troubleshooting</td>
+          <td>Python, Bash — automating repetitive tasks</td>
+        </tr>
+        <tr>
+          <td>Languages</td>
+          <td>C++, Python, Bash, PowerShell</td>
+        </tr>
+        <tr>
+          <td>Networking Fundamentals</td>
+          <td>TCP/IP, DNS, DHCP, routing & switching basics</td>
+        </tr>
+        <tr>
+          <td>System Administration</td>
+          <td>Basic Windows & Linux troubleshooting, Active Directory basics</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- KEY SKILLS -->
+    <div>
+      <div class="sec-title">Key Skills</div>
+      <div class="chips">
+        <span class="chip hi">Network Security</span>
+        <span class="chip hi">Cryptography</span>
+        <span class="chip hi">Cyber Forensics</span>
+        <span class="chip hi">Incident Response</span>
+        <span class="chip hi">Threat Analysis</span>
+        <span class="chip">Ethical Hacking</span>
+        <span class="chip">SAST / DAST</span>
+        <span class="chip">Risk Management</span>
+        <span class="chip">Secure Coding</span>
+        <span class="chip">IoT Security</span>
+        <span class="chip">Security Protocols</span>
+        <span class="chip">Risk Mitigation</span>
+        <span class="chip">Secure Data Transmission</span>
+        <span class="chip">Wireless Communication</span>
+        <span class="chip">MS Office</span>
+        <span class="chip">HTML</span>
+        <span class="chip">GSM Technology</span>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- WORKSHOPS -->
+    <div>
+      <div class="sec-title">Workshops</div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="font-size:9px;color:var(--pink-mid)">✿</span>
+        <span style="font-size:13px;color:var(--text2);">Next-Generation Cybersecurity for Systems, Software, and Applications</span>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- ACADEMIC PROJECTS -->
+    <div>
+      <div class="sec-title">Academic Projects</div>
+
+      <div class="proj-item">
+        <div class="proj-header">
+          <span class="proj-title">Convolution Neural Network of Gastrointestinal Cancer</span>
+          <span class="proj-year">2024</span>
+        </div>
+        <ul class="proj-list">
+          <li>Developed a CNN-based deep learning model for gastrointestinal cancer detection, enhancing diagnostic accuracy.</li>
+          <li>Improved interpretability and transparency of AI decisions, enabling medical professionals to trust and utilise AI-driven diagnoses.</li>
+        </ul>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-header">
+          <span class="proj-title">Cybersecurity Detection & Monitoring Lab</span>
+          <span class="proj-year">2023</span>
+        </div>
+        <ul class="proj-list">
+          <li>Built a lab environment to practice system monitoring and troubleshooting.</li>
+          <li>Configured firewall rules and monitored logs to identify connectivity and authentication issues.</li>
+          <li>Developed structured troubleshooting workflows to improve issue resolution efficiency.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- VOLUNTEER + LANGUAGES (two col) -->
+    <div class="two">
+      <div>
+        <div class="sec-title">Volunteer Experience</div>
+        <ul class="vol-list">
+          <li>
+            Lions Club of Pondicherry — Active Member
+            <span class="vol-date">2020 – Present</span>
+          </li>
+          <li>
+            Starfort Cybersecurity Awareness Program — Volunteer
+            <span class="vol-date">2024</span>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="sec-title">Languages</div>
+        <div class="chips" style="margin-bottom:14px;">
+          <span class="chip hi">Tamil — Native</span>
+          <span class="chip hi">English — Proficient</span>
+          <span class="chip">French — A2</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- ONLINE PROFILES -->
+    <div>
+      <div class="sec-title">Online Profiles</div>
+      <div class="two">
+        <div>
+          <div class="link-item">
+            <span class="link-label">LinkedIn</span>
+            <a href="https://www.linkedin.com/in/santhiya-mahadevan-4a0ab33ba" target="_blank">linkedin.com/in/santhiya-mahadevan-4a0ab33ba</a>
+          </div>
+          <div class="link-item">
+            <span class="link-label">Portfolio</span>
+            <a href="https://santhiya0717.github.io/Portfolio/" target="_blank">santhiya0717.github.io/Portfolio/</a>
+          </div>
+        </div>
+        <div>
+          <div class="link-item">
+            <span class="link-label">TryHackMe</span>
+            <a href="https://tryhackme.com/p/santhiyasuga1708" target="_blank">tryhackme.com/p/santhiyasuga1708</a>
+          </div>
+          <div class="link-item">
+            <span class="link-label">GitHub</span>
+            <a href="https://github.com/santhiya0717" target="_blank">github.com/santhiya0717</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /cv-body -->
+</div><!-- /page -->
+
+<script>
+  const bc = document.getElementById('bc');
+  const NS = 'http://www.w3.org/2000/svg';
+  const pals=[['#f9c0d0','#f4a8bc','#f0b8c8'],['#fddde6','#f9c8d4','#f7b8cc'],['#fce4ec','#f8bbd0','#f48fb1']];
+  function mkB(sz){
+    const c=pals[Math.floor(Math.random()*pals.length)];
+    const svg=document.createElementNS(NS,'svg');
+    svg.setAttribute('width',sz);svg.setAttribute('height',sz);svg.setAttribute('viewBox','0 0 40 40');
+    for(let i=0;i<5;i++){
+      const g=document.createElementNS(NS,'g');g.setAttribute('transform',`rotate(${i*72} 20 20)`);
+      const e=document.createElementNS(NS,'ellipse');
+      e.setAttribute('cx','20');e.setAttribute('cy','13');e.setAttribute('rx','4.5');e.setAttribute('ry','7');
+      e.setAttribute('fill',c[i%c.length]);e.setAttribute('opacity','0.78');g.appendChild(e);svg.appendChild(g);
+    }
+    const ci=document.createElementNS(NS,'circle');ci.setAttribute('cx','20');ci.setAttribute('cy','20');
+    ci.setAttribute('r','3');ci.setAttribute('fill','#fffaf8');ci.setAttribute('opacity','0.95');svg.appendChild(ci);
+    return svg;
+  }
+  for(let i=0;i<22;i++){
+    const sz=14+Math.random()*20,sx=Math.random()*window.innerWidth;
+    const dx=(Math.random()-0.35)*250,sp=(Math.random()-0.5)*420;
+    const dur=8+Math.random()*10,del=Math.random()*dur;
+    const w=document.createElement('div');w.className='bl';
+    w.style.cssText=`left:${sx}px;top:0;width:${sz}px;height:${sz}px;--dx:${dx}px;--sp:${sp}deg;animation-duration:${dur}s;animation-delay:-${del}s`;
+    w.appendChild(mkB(sz));bc.appendChild(w);
+    w.addEventListener('animationiteration',()=>{w.style.left=(Math.random()*window.innerWidth)+'px';});
+  }
+</script>
+</body>
+</html>
